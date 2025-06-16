@@ -1,5 +1,7 @@
 import asyncio
 from aiogram import Bot, Dispatcher
+from dotenv import load_dotenv
+load_dotenv()
 from config import Config
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums.parse_mode import ParseMode
