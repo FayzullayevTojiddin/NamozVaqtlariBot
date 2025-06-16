@@ -90,3 +90,8 @@ learn_xufton_text = (
     "2. Vitrda: 3-rakatdan keyin qunut duosi, salovot va duo\n\n"
     "_Kun yakuni. Yolg‘izligingda Robbing bilan muloqot 🌌_"
 )
+
+donate_alert_message = (
+    "💖 Rahmat!\n\n"
+    "Donat qilishingiz shart emas — shunchaki niyat va duo qilganingizning o‘zi yetarli 🤲"
+)

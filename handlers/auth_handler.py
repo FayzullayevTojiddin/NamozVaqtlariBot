@@ -1,10 +1,10 @@
 from aiogram import Router, F, types
 from aiogram.filters.command import CommandStart
 from keyboards.main_keyboard import (
-    regions_keyboard, main_keyboard, get_times_keyboard, get_learn_prayer_keyboard
+    regions_keyboard, main_keyboard, get_times_keyboard, get_learn_prayer_keyboard,
 )
 from locales.uz import (
-    select_region_message, region_selected_message, error_message, prayer_times_message, learn_prayer_intro_message
+    select_region_message, region_selected_message, error_message, prayer_times_message, learn_prayer_intro_message, donate_alert_message
 )
 
 from aiogram.exceptions import TelegramBadRequest
@@ -99,4 +99,12 @@ async def learn_prayer_detail_handler(callback: types.CallbackQuery):
     await callback.message.edit_text(
         text=text,
         reply_markup=await get_learn_prayer_keyboard()
+    )
+
+
+@router.callback_query(F.data == "donate")
+async def donate_callback(callback: types.CallbackQuery):
+    await callback.answer(
+        text=donate_alert_message,
+        show_alert=True
     )

@@ -21,6 +21,7 @@ async def main_keyboard() -> InlineKeyboardBuilder:
     keyboard.button(text="🔁 Namoz vaqtlarini yangilash", callback_data="refresh_prayer_times")
     keyboard.button(text="📖 Namoz o‘qishni o‘rganish", callback_data="learn_prayer")
     keyboard.button(text="🌍 Hududni o‘zgartirish", callback_data="select_region")
+    keyboard.button(text="💝 Donat qilish", callback_data="donate")
     keyboard.adjust(1)
     return keyboard.as_markup()
 
@@ -28,6 +29,7 @@ async def get_times_keyboard() -> InlineKeyboardBuilder:
     keyboard = InlineKeyboardBuilder()
     keyboard.button(text="🔁 Namoz vaqtlarini ko'rish", callback_data="refresh_prayer_times")
     keyboard.button(text="📖 Namoz o‘qishni o‘rganish", callback_data="learn_prayer")
+    keyboard.button(text="💝 Donat qilish", callback_data="donate")
     keyboard.adjust(1)
     return keyboard.as_markup()
 
