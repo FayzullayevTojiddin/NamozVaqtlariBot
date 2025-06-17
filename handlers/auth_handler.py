@@ -18,12 +18,18 @@ router = Router(name=__name__)
 
 @router.callback_query(F.data == "select_region")
 @router.message(IsNotRegistered())
-async def start_command_handler(message):
-    await message.bot.send_message(
-        chat_id=message.from_user.id,
-        text=select_region_message,
-        reply_markup=await regions_keyboard()
-    )
+async def start_command_handler(target: types.Message | types.CallbackQuery):
+    if isinstance(target, types.CallbackQuery):
+        await target.message.edit_text(
+            text=select_region_message,
+            reply_markup=await regions_keyboard()
+        )
+    else:
+        await target.bot.send_message(
+            chat_id=target.from_user.id,
+            text=select_region_message,
+            reply_markup=await regions_keyboard()
+        )
 
 @router.callback_query(F.data.startswith('region:'))
 async def select_region_handler(callback: types.CallbackQuery):
